@@ -94,6 +94,17 @@ input{
     color: white;
 }
 
+.botones{
+    text-align: center;
+    width: 200px;
+    height: 65px;
+    font-size: 35px;
+    border-radius: 10px;
+    border: 3px solid white;
+    background-color: #000000;
+    color: white;
+}
+
 .seleccionar-ataque{
     display: flex;
     flex-direction: column;
@@ -112,4 +123,36 @@ input{
 .mensaje{
     text-align: center;
     padding: 20px;
+}
+
+.contenedor-vidas h3{
+    font-size: 50px;
+}
+
+.contenedor-vidas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-vidas div{
+    width: 350px;
+    height: 450px;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.vidas-mascota{
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: wheat;
+}
+
+.vidas-enemigo{
+    background-color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: wheat;
 }
