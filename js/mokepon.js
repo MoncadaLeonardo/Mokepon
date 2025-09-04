@@ -29,7 +29,7 @@ function seleccionarMascotaJugador() {
     sectionSeleccionarMascota.style.display = 'none'
 
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
-    sectionSeleccionarAtaque.style.display = 'block'
+    sectionSeleccionarAtaque.style.display = 'flex'
 
     let sectionbotonMascotaJugador = document.getElementById('boton-seleccionar')
     sectionbotonMascotaJugador.style.display = 'none'
@@ -48,7 +48,7 @@ function seleccionarMascotaJugador() {
         spanMascotaJugador.innerHTML = 'Ratigueya'
     } else {
         alert('SELECCIONA UNA MASCOTA PARA CONTINUAR')
-    } return
+    } 
 
     seleccionarMascotaEnemigo()
 }
