@@ -139,10 +139,9 @@ input{
 
 .contenedor-vidas div{
     width: 350px;
-    height: 450px;
+    height: auto;;
     border-radius: 10px;
-    margin: 20px;
-    padding: 20px;
+    padding: auto;
 }
 
 .vidas-mascota{
@@ -177,12 +176,22 @@ input{
     color: rgb(255, 247, 0);
 }
 
+#mascota-jugador{
+    font-size: 3rem;
+    color: rgb(255, 247, 0);
+}
+
+#mascota-enemigo{
+    font-size: 3rem;
+    color: rgb(255, 247, 0);
+}
+
 #mensajes{
-    margin-top: 10px;
+    margin: 30px;
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     color: wheat;
-    font-size: 30px;
+    font-size: 50px;
     height: auto;
     width: auto;
     border-radius: 10px;

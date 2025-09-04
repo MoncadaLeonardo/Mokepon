@@ -31,6 +31,9 @@ function seleccionarMascotaJugador() {
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'block'
 
+    let sectionbotonMascotaJugador = document.getElementById('boton-seleccionar')
+    sectionbotonMascotaJugador.style.display = 'none'
+
     let inputHipodoge = document.getElementById('hipodoge')
     let inputCapipepo = document.getElementById('capipepo')
     let inputRatigueya = document.getElementById('ratigueya')
@@ -45,12 +48,9 @@ function seleccionarMascotaJugador() {
         spanMascotaJugador.innerHTML = 'Ratigueya'
     } else {
         alert('SELECCIONA UNA MASCOTA PARA CONTINUAR')
-    }
+    } return
 
     seleccionarMascotaEnemigo()
-
-    let sectionbotonMascotaJugador = document.getElementById('boton-seleccionar')
-    sectionbotonMascotaJugador.style.display = 'none'
 }
 
 function seleccionarMascotaEnemigo() {
@@ -67,28 +67,28 @@ function seleccionarMascotaEnemigo() {
 }
 
 function ataqueFuego() {
-    ataqueJugador = 'FUEGO'
+    ataqueJugador = 'FUEGO🔥'
     ataqueEnemigoAleatorio ()
 }
 
 function ataqueAgua() {
-    ataqueJugador = 'AGUA'
+    ataqueJugador = 'AGUA💧'
     ataqueEnemigoAleatorio ()
 }
 
 function ataqueTierra() {
-    ataqueJugador = 'TIERRA'
+    ataqueJugador = 'TIERRA🌾'
     ataqueEnemigoAleatorio ()
 }
 
 function ataqueEnemigoAleatorio () {
     ataqueEnemigo = aleatorio (1, 3)
     if (ataqueEnemigo == 1) {
-       ataqueEnemigo = 'FUEGO'
+       ataqueEnemigo = 'FUEGO🔥'
     } else if (ataqueEnemigo == 2) {
-        ataqueEnemigo = 'AGUA'
+        ataqueEnemigo = 'AGUA💧'
     } else {
-         ataqueEnemigo = 'TIERRA'
+         ataqueEnemigo = 'TIERRA🌾'
     }
 
     combate()
@@ -100,15 +100,15 @@ let spanVidasEnemigo = document.getElementById('vidas-enemigo')
 
     if(ataqueJugador == ataqueEnemigo) {
         crearMensaje('EMPATASTE BRO')
-    } else if(ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA') {
+    } else if(ataqueJugador == 'FUEGO🔥' && ataqueEnemigo == 'TIERRA🌾') {
         crearMensaje('GANASTE BRO')
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo
-    } else if(ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
+    } else if(ataqueJugador == 'AGUA💧' && ataqueEnemigo == 'FUEGO🔥') {
         crearMensaje('GANASTE BRO')
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo
-    } else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
+    } else if(ataqueJugador == 'TIERRA🌾' && ataqueEnemigo == 'AGUA💧') {
         crearMensaje('GANASTE BRO')
         vidasEnemigo--
         spanVidasEnemigo.innerHTML = vidasEnemigo
@@ -116,7 +116,7 @@ let spanVidasEnemigo = document.getElementById('vidas-enemigo')
         crearMensaje('PERDISTE MI BRO, LO SIENTO')
         vidasJugador--
         spanVidasJugador.innerHTML = vidasJugador
-    }
+    }   
 
     revisarVidas()
 }
@@ -130,21 +130,25 @@ function revisarVidas(){
 }
 
 function crearMensaje (resultado) {
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado')
+    let ataquesDelJugador = document.getElementById('ataque-jugador')
+    let ataquesDelEnemigo = document.getElementById('ataque-enemigo')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ' La mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultado
+    let nuevoAtaqueDelJugador  = document.createElement('p')
+    let nuevoAtaqueDelEnemigo = document.createElement('p')
 
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.innerHTML = resultado
+    nuevoAtaqueDelJugador.innerHTML = ataqueJugador
+    nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
+
+    ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
+    ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
 }
 
 function mensajeFinal (resultadoFinal) {
-    let sectionMensajes = document.getElementById('mensajes')
+    let sectionMensajes = document.getElementById('resultado')
 
-    let parrafo = document.createElement('p')
-    parrafo.innerHTML = resultadoFinal
-
-    sectionMensajes.appendChild(parrafo)
+    sectionMensajes.innerHTML = resultadoFinal
 
     let botonFuego = document.getElementById('boton-fuego')
     botonFuego.disabled = true
