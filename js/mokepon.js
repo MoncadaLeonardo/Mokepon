@@ -154,7 +154,7 @@ function mensajeFinal (resultadoFinal) {
     botonTierra.disabled = true
 
     let sectionReiniciar = document.getElementById('reiniciar')
-    sectionReiniciar.style.display = 'block'
+    sectionReiniciar.style.display = 'flex'
 }
 
 function reiniciarJuego(){
