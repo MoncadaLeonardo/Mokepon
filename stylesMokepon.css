@@ -156,3 +156,35 @@ input{
     text-align: center;
     color: wheat;
 }
+
+.vidas-mascota p{
+    font-size: 35px;
+}
+
+.vidas-enemigo p{
+    font-size: 35px;
+}
+
+#vidas-jugador{
+    font-size: 60px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(255, 247, 0);
+}
+
+#vidas-enemigo{
+    font-size: 60px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(255, 247, 0);
+}
+
+#mensajes{
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: wheat;
+    font-size: 30px;
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+}
+
