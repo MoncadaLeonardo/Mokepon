@@ -125,11 +125,6 @@ input{
     gap: 50px;
 }
 
-#mensaje{
-    text-align: center;
-    padding: 20px;
-}
-
 .contenedor-vidas h3{
     font-size: 50px;
 }
@@ -198,4 +193,141 @@ input{
     border: 3px solid white;
     background-color: #000000;
     color: white;
+}
+
+@media (max-width: 1200px){
+    body{
+        background-image: url(./imagenes/fondo.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .seleccion-personajes img{
+        padding: 0px 25px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 30vh;
+        gap: 50px;
+    }
+
+    .seleccion-personajes{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-size: 30px;
+        gap: 60px;
+    }
+
+    #seleccionar-ataque, .titulo{
+        font-size: 50px;
+    }
+
+    #seleccionar-ataque h2{
+        font-size: 30px;
+    }
+
+    .botones{
+        text-align: center;
+        width: 140px;
+        height: 55px;
+        font-size: 25px;
+        border-radius: 10px;
+        border: 3px solid white;
+        background-color: #000000;
+        color: white;
+    }
+
+    #mensajes{
+        margin: 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        text-align: center;
+        color: wheat;
+        font-size: 30px;
+        height: auto;
+        width: 45%;
+        border-radius: 10px;
+    }
+
+    /*De aqui en adelante*/
+    .contenedor-vidas h3{
+        font-size: 30px;
+    }
+
+    .contenedor-vidas{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contenedor-vidas div{
+        width: 300px;
+        height: auto;;
+        border-radius: 10px;
+        padding: auto;
+    }
+
+    .vidas-mascota, .vidas-enemigo{
+        background-color: rgba(0, 0, 0, 0.3);
+        text-align: center;
+        color: wheat;
+    }
+
+    .vidas-mascota p, .vidas-enemigo p{
+        font-size: 25px;
+    }
+
+    #vidas-jugador, #vidas-enemigo{
+        font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: rgb(255, 247, 0);
+    }
+
+    #mascota-jugador, #mascota-enemigo{
+        font-size: 2rem;
+        color: rgb(255, 247, 0);
+    }
+
+    #reiniciar button{
+        text-align: center;
+        width: 140px;
+        height: 55px;
+        font-size: 25px;
+        border-radius: 10px;
+        border: 3px solid white;
+        background-color: #000000;
+        color: white;
+        margin-top: -20px;
+    }
+}
+/*PARA TABLET*/
+@media (max-width: 900px){
+    #seleccionar-mascota h1{
+        font-size: 40px;
+    }
+
+    #seleccionar-mascota h2{
+        font-size: 30px;
+    }
+
+    .seleccion-personajes img{
+        padding: 0px 25px;
+        display: flex;
+        flex-wrap: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 20vh;
+        gap: 50px;
+    }
+
+    .seleccion-personajes{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        font-size: 25px;
+        gap: 60px;
+    }
 }
