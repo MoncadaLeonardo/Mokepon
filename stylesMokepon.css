@@ -47,6 +47,8 @@ h2{
 }
 
 .personaje-fuego{
+    display: flex;
+    flex-direction: column;
     padding-bottom: 50px;
     text-align: center;
     background-color: #e04909;
@@ -56,29 +58,9 @@ h2{
     box-shadow: 0px 0px 20px 5px rgb(208, 255, 21);
 }
 
-.personaje-agua{
-    padding-bottom: 50px;
-    text-align: center;
-    background-color: #3f62e1;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: white;
-    border-radius: 20px;
-    box-shadow: 0px 0px 20px 5px #4fe2ff;
-}
-
-.personaje-tierra{
-    padding-bottom: 50px;
-    text-align: center;
-    background-color: #96631b;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: white;
-    border-radius: 20px;
-    box-shadow: 0px 0px 20px 5px black;
-}
-
 input{
-    height: 25px;
-    width: 25px;
+    height: 20px;
+    margin-top: 10px;
 }
 
 #boton-seleccionar{
@@ -126,7 +108,7 @@ input{
 }
 
 .contenedor-vidas h3{
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .contenedor-vidas{
@@ -138,7 +120,7 @@ input{
 }
 
 .contenedor-vidas div{
-    width: 350px;
+    width: 300px;
     height: auto;;
     border-radius: 10px;
     padding: auto;
@@ -155,7 +137,7 @@ input{
 }
 
 #vidas-jugador, #vidas-enemigo{
-    font-size: 60px;
+    font-size: 40px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(255, 247, 0);
 }
@@ -170,7 +152,7 @@ input{
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     color: wheat;
-    font-size: 50px;
+    font-size: 43px;
     height: auto;
     width: 50%;
     border-radius: 10px;
@@ -186,98 +168,52 @@ input{
 
 #reiniciar button{
     text-align: center;
-    width: 200px;
+    width: 150px;
     height: 65px;
-    font-size: 35px;
+    font-size: 30px;
     border-radius: 10px;
     border: 3px solid white;
     background-color: #000000;
     color: white;
 }
 
-@media (max-width: 1200px){
-    body{
-        background-image: url(./imagenes/fondo.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    .seleccion-personajes img{
-        padding: 0px 25px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 30vh;
-        gap: 50px;
-    }
-
-    .seleccion-personajes{
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        font-size: 30px;
-        gap: 60px;
-    }
-
-    #seleccionar-ataque, .titulo{
+@media (max-width: 1024px) {
+    h1 {
         font-size: 50px;
-    }
-
-    #seleccionar-ataque h2{
-        font-size: 30px;
-    }
-
-    .botones{
-        text-align: center;
-        width: 140px;
-        height: 55px;
-        font-size: 25px;
-        border-radius: 10px;
-        border: 3px solid white;
-        background-color: #000000;
         color: white;
     }
 
+    h2{
+        font-size: 40px;
+    }
+
+    .seleccion-personajes img {
+        height: 230px;
+        width: 200px;
+    }
+
+    .seleccion-personajes{
+        font-size: 30px;
+    }
+
+    input{
+        height: 15px;
+    }
+
+    .botones{
+        width: 140px;
+    }
+
     #mensajes{
-        margin: 30px;
-        background-color: rgba(0, 0, 0, 0.7);
-        text-align: center;
-        color: wheat;
-        font-size: 30px;
-        height: auto;
-        width: 45%;
-        border-radius: 10px;
+        font-size: 35px;
     }
 
-    /*De aqui en adelante*/
     .contenedor-vidas h3{
-        font-size: 30px;
-    }
-
-    .contenedor-vidas{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .contenedor-vidas div{
-        width: 300px;
-        height: auto;;
-        border-radius: 10px;
-        padding: auto;
-    }
-
-    .vidas-mascota, .vidas-enemigo{
-        background-color: rgba(0, 0, 0, 0.3);
-        text-align: center;
-        color: wheat;
+    font-size: 30px;
     }
 
     .vidas-mascota p, .vidas-enemigo p{
-        font-size: 25px;
+    font-size: 25px;
     }
 
     #vidas-jugador, #vidas-enemigo{
@@ -290,44 +226,123 @@ input{
         font-size: 2rem;
         color: rgb(255, 247, 0);
     }
-
-    #reiniciar button{
-        text-align: center;
-        width: 140px;
-        height: 55px;
-        font-size: 25px;
-        border-radius: 10px;
-        border: 3px solid white;
-        background-color: #000000;
-        color: white;
-        margin-top: -20px;
-    }
 }
-/*PARA TABLET*/
-@media (max-width: 900px){
-    #seleccionar-mascota h1{
-        font-size: 40px;
+
+@media (max-width: 768px){
+
+    h2{
+        color: white;
     }
 
-    #seleccionar-mascota h2{
-        font-size: 30px;
-    }
-
-    .seleccion-personajes img{
-        padding: 0px 25px;
-        display: flex;
-        flex-wrap: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 20vh;
+    .seleccion-personajes img {
+        height: 220px;
+        width: 150px;
+        padding: 0;
         gap: 50px;
     }
 
+    .botones{
+        width: 100px;
+    }
+
+    #mensajes{
+        font-size: 25px;
+    }
+
+    #reiniciar{
+    margin-top: 0;
+    }
+
+    #reiniciar button{
+    width: 100px;
+    height: 55px;
+    font-size: 20px;
+    }
+}
+
+@media (max-width: 425px){
+    body{
+        background-image: none;
+    }
+
+    #seleccionar-mascota{
+        flex-direction: column;
+    }
+
+    h1{
+        font-size: 50px;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+
     .seleccion-personajes{
-        display: flex;
+        margin: 25px;
+        flex-direction: column;
+    }
+
+    .personaje-fuego{
+        flex-direction: row;
+        height: 150px;
+        width: auto;
+    }
+
+    .personaje-fuego img{
+        height: 150px;
+        width: 100px;
+    }
+
+    label{
         justify-content: center;
         align-content: center;
-        font-size: 25px;
-        gap: 60px;
+        margin-top: 50px;
+    }
+
+    input{
+        display: none;
+    }
+
+    #contenedorTarjetas{
+        gap: 30px;
+    }
+
+    .imagen-fuego{
+        margin-left: 60px;
+    }
+
+    #boton-seleccionar{
+        padding: 10px;
+    }
+
+    .batalla{
+        gap: 10px;
+    }
+
+    .botones{
+        width: 70px;
+    }
+
+    #mensajes{
+        font-size: 15px;
+    }
+
+     .contenedor-vidas h3{
+    font-size: 20px;
+    }
+
+    .vidas-mascota p, .vidas-enemigo p{
+    font-size: 15px;
+    }
+
+    #vidas-jugador, #vidas-enemigo{
+        font-size: 20px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: rgb(255, 247, 0);
+    }
+
+    #mascota-jugador, #mascota-enemigo{
+        font-size: 1rem;
+        color: rgb(255, 247, 0);
     }
 }

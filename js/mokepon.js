@@ -166,14 +166,17 @@ function secuenciaAtaque() {
                 ataqueJugador.push('FUEGO')
                 console.log(ataqueJugador)
                 boton.style.background = '#112f58'
+                boton.disabled = true
             } else if (e.target.textContent === '💧') {
                 ataqueJugador.push('AGUA')
                 console.log(ataqueJugador)
                 boton.style.background = '#112f58'
+                boton.disabled = true
             } else {
                  ataqueJugador.push('TIERRA')
                 console.log(ataqueJugador)
                 boton.style.background = '#112f58'
+                boton.disabled = true
             }
             ataqueEnemigoAleatorio ()
         })
@@ -191,6 +194,7 @@ function seleccionarMascotaEnemigo() {
 
 function ataqueEnemigoAleatorio () {
     let ataqueAleatorio = aleatorio (0, ataquesMokeponEnemigo.length -1)
+    
     if (ataqueAleatorio == 0 || ataqueAleatorio == 1) {
        ataqueEnemigo.push('FUEGO')
     } else if (ataqueAleatorio == 3 || ataqueAleatorio == 4) {
@@ -218,8 +222,6 @@ function combate() {
         if (ataqueJugador[index] === ataqueEnemigo[index]) {
             indexAmbosOponentes(index, index)
             crearMensaje("EMPATASTE BRO")
-            victoriasJugador++
-            spanVidasJugador.innerHTML = victoriasJugador
         } else if(ataqueJugador[index] === 'FUEGO' && ataqueEnemigo[index] === 'TIERRA') {
             indexAmbosOponentes(index, index)
             crearMensaje('GANASTE BRO')
@@ -247,7 +249,7 @@ function combate() {
 }
 
 function revisarVidas(){
-    if (victoriasJugador = victoriasEnemigo) {
+    if (victoriasJugador === victoriasEnemigo) {
         mensajeFinal('EMPATASTE, BRO!')
     } else if (victoriasJugador > victoriasEnemigo) {
         mensajeFinal('FELICIDADES! GANASTE!!!')
@@ -270,11 +272,6 @@ function crearMensaje (resultado) {
 
 function mensajeFinal (resultadoFinal) {
     sectionMensajes.innerHTML = resultadoFinal
-
-    botonFuego.disabled = true
-    botonAgua.disabled = true
-    botonTierra.disabled = true
-
     sectionReiniciar.style.display = 'flex'
 }
 
