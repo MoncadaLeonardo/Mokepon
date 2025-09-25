@@ -396,6 +396,11 @@ function aleatorio(min, max) {
 function pintarCanvas() {
     mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX
     mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY
+
+    // Evitar que el mokepon se salga del canvas
+    mascotaJugadorObjeto.x = Math.max(0, Math.min(mascotaJugadorObjeto.x, mapa.width - mascotaJugadorObjeto.ancho))
+    mascotaJugadorObjeto.y = Math.max(0, Math.min(mascotaJugadorObjeto.y, mapa.height - mascotaJugadorObjeto.alto))
+
     lienzo.clearRect(0, 0, mapa.width, mapa.height)
     lienzo.drawImage(
         mapaBackground,
@@ -426,6 +431,50 @@ function enviarPosicion(x, y) {
         })
     })
     .then(function (res) {
+        if (!res.ok) {
+            console.warn('Respuesta no OK de /posicion', res.status);
+            return;
+        }
+        return res.json();
+    })
+
+ .then(function (data) {
+        if (!data) return;
+        // asegurar que la respuesta tenga la propiedad 'enemigos' como array
+        const enemigos = Array.isArray(data.enemigos) ? data.enemigos : [];
+        console.log('enemigos raw:', enemigos);
+
+        // Filtrar entradas no válidas (null/undefined) y objetos sin id
+        const enemigosFiltrados = enemigos.filter(e => e && e.id);
+        // Mapea defensivamente usando optional chaining
+        mokeponesEnemigos = enemigosFiltrados.map(function (enemigo) {
+            let mokeponEnemigo = null;
+            const mokeponNombre = enemigo.mokepon?.nombre || "";
+
+            if (mokeponNombre === "Hipodoge") {
+                mokeponEnemigo = new Mokepon('Hipodoge', './imagenes/fuego.png', 5, './imagenes/mokefuego.png', enemigo.id);
+            } else if (mokeponNombre === "Capipepo") {
+                mokeponEnemigo = new Mokepon('Capipepo', './imagenes/agua.png', 5, './imagenes/mokeagua.png', enemigo.id);
+            } else if (mokeponNombre === "Ratigueya") {
+                mokeponEnemigo = new Mokepon('Ratigueya', './imagenes/tierra.png', 5, './imagenes/moketierra.png', enemigo.id);
+            } else {
+                // si no tiene mokepon asignado aún, crea un placeholder (evita undefined)
+                mokeponEnemigo = new Mokepon('Desconocido', './imagenes/mokeplaceholder.png', 1, './imagenes/mokeplaceholder.png', enemigo.id);
+            }
+
+            // si vienen las coordenadas las asignamos; si no, dejamos las generadas aleatoriamente
+            if (typeof enemigo.x === 'number') mokeponEnemigo.x = enemigo.x;
+            if (typeof enemigo.y === 'number') mokeponEnemigo.y = enemigo.y;
+
+            return mokeponEnemigo;
+        });
+
+        console.log('mokeponesEnemigos procesados:', mokeponesEnemigos);
+    })
+    .catch(function (err) {
+        console.error('Error en enviarPosicion:', err);
+    });
+    /* .then(function (res) {
         if(res.ok) {
             res.json()
                 .then(function ({enemigos}) {
@@ -447,8 +496,8 @@ function enviarPosicion(x, y) {
                         return mokeponEnemigo
                     })
                 })
-        }
-    })
+        } 
+    })*/
 }
 
 function moverDerecha() {
