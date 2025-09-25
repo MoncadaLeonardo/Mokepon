@@ -200,13 +200,18 @@ input{
 
 
 @media (max-width: 1024px) {
+    body {
+        background-image: none;
+    }
+
     h1 {
         font-size: 50px;
-        color: white;
+        color: wheat;
     }
 
     h2{
         font-size: 40px;
+        color: wheat;
     }
 
     .seleccion-personajes img {
@@ -282,7 +287,7 @@ input{
     }
 }
 
-@media (max-width: 425px){
+@media (max-width: 426px){
     body{
         background-image: none;
     }
