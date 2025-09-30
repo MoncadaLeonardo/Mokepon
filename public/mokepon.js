@@ -7,6 +7,8 @@ sectionReiniciar.style.display = 'none'
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
 const sectionbotonMascotaJugador = document.getElementById('boton-seleccionar')
 
+const sectionReglasJuego = document.getElementById('section-reglas')
+
 const spanMascotaJugador = document.getElementById('mascota-jugador')
 
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
@@ -74,7 +76,7 @@ class Mokepon {
         this.ataques = []
         this.ancho = 40
         this.alto = 40
-        this.x = aleatorio(0, mapa.width - this.ancho)
+        this.x = aleatorio(0, mapa.width - this.ancho) 
         this.y = aleatorio(0, mapa.height - this.alto)
         this.mapaFoto = new Image()
         this.mapaFoto.src = fotoMapa
@@ -82,6 +84,7 @@ class Mokepon {
         this.velocidadY = 0
     }
     
+    //metodo
     pintarMokepon() {
         lienzo.drawImage(
         this.mapaFoto,
@@ -139,8 +142,8 @@ function iniciarJuego() {
 
     mokepones.forEach((mokepon) =>{
         opcionDeMokepones = `
-        <div class="personaje-fuego">
-            <img class="imagen-fuego" src="${mokepon.foto}" alt="${mokepon.nombre}">
+        <div class="personajes"> 
+            <img class="imagen-personaje" src="${mokepon.foto}" alt="${mokepon.nombre}">
             <label for="${mokepon.nombre}">${mokepon.nombre}</label>
             <input type="radio" name="mascota" id=${mokepon.nombre}>
         </div>
@@ -156,9 +159,11 @@ function iniciarJuego() {
     
     botonReiniciar.addEventListener('click', reiniciarJuego)
 
+    //conexion con el servidor para unirse al juego
     unirseAlJuego()
 }
 
+//funcion para llamar al backend y obtener un id del jugador
 function unirseAlJuego() {
     fetch("http://192.168.0.113:8080/unirse")
         .then(function (res) {
@@ -397,7 +402,6 @@ function pintarCanvas() {
     mascotaJugadorObjeto.x = mascotaJugadorObjeto.x + mascotaJugadorObjeto.velocidadX
     mascotaJugadorObjeto.y = mascotaJugadorObjeto.y + mascotaJugadorObjeto.velocidadY
 
-    // Evitar que el mokepon se salga del canvas
     mascotaJugadorObjeto.x = Math.max(0, Math.min(mascotaJugadorObjeto.x, mapa.width - mascotaJugadorObjeto.ancho))
     mascotaJugadorObjeto.y = Math.max(0, Math.min(mascotaJugadorObjeto.y, mapa.height - mascotaJugadorObjeto.alto))
 
@@ -440,13 +444,10 @@ function enviarPosicion(x, y) {
 
  .then(function (data) {
         if (!data) return;
-        // asegurar que la respuesta tenga la propiedad 'enemigos' como array
         const enemigos = Array.isArray(data.enemigos) ? data.enemigos : [];
         console.log('enemigos raw:', enemigos);
 
-        // Filtrar entradas no válidas (null/undefined) y objetos sin id
         const enemigosFiltrados = enemigos.filter(e => e && e.id);
-        // Mapea defensivamente usando optional chaining
         mokeponesEnemigos = enemigosFiltrados.map(function (enemigo) {
             let mokeponEnemigo = null;
             const mokeponNombre = enemigo.mokepon?.nombre || "";
@@ -462,7 +463,7 @@ function enviarPosicion(x, y) {
                 mokeponEnemigo = new Mokepon('Desconocido', './imagenes/mokeplaceholder.png', 1, './imagenes/mokeplaceholder.png', enemigo.id);
             }
 
-            // si vienen las coordenadas las asignamos; si no, dejamos las generadas aleatoriamente
+
             if (typeof enemigo.x === 'number') mokeponEnemigo.x = enemigo.x;
             if (typeof enemigo.y === 'number') mokeponEnemigo.y = enemigo.y;
 
@@ -473,7 +474,7 @@ function enviarPosicion(x, y) {
     })
     .catch(function (err) {
         console.error('Error en enviarPosicion:', err);
-    });
+    }); 
     /* .then(function (res) {
         if(res.ok) {
             res.json()
@@ -497,7 +498,7 @@ function enviarPosicion(x, y) {
                     })
                 })
         } 
-    })*/
+    }) */
 }
 
 function moverDerecha() {
