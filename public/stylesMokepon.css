@@ -18,15 +18,16 @@ body{
 }
 
 h1{
-    padding: 20px;
+    padding-top: 20px;
     text-align: center;
     font-size: 50px;
 }
 
 h2{
     text-align: center;
-    font-size: 30px;
-    padding-bottom: 30px;
+    font-size: 40px;
+    /* padding-bottom: 30px; */
+    margin: 20px;
 }
 
 .seleccion-personajes img{
@@ -104,6 +105,50 @@ h3{
     background-color: #000000;
     color: white;
     font-size: 20px;
+}
+
+#como-jugar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h4{
+    font-size: 25px;
+}
+
+ol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+li{
+    list-style: none;
+}
+
+#info-uno, #info-dos, #info-tres{
+    margin: 10px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    color: bisque;
+    width: 70%;
+    border-radius: 10px;
+}
+#info-uno p, #info-dos p, #info-tres p{
+    font-size: 20px;
+}
+
+#regresar-inicio{
+    width: 115px;
+    height: 50px;
+    font-size: 15px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    color: white;
 }
 
 .botones{

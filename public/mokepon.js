@@ -167,6 +167,8 @@ function iniciarJuego() {
 
     botonReglas.addEventListener('click', ReglasJuego)
 
+    botonRegresarInicio.addEventListener('click', RegresarPantallaPrincipal)
+
     //conexion con el servidor para unirse al juego
     unirseAlJuego()
 }
@@ -188,12 +190,16 @@ function unirseAlJuego() {
 
 function ReglasJuego() {
     console.log('Seccion para conocer Reglas del Juego');
-    sectionComoJugar.style.display = 'block'
+    sectionComoJugar.style.display = 'flex'
 
     sectionbotonMascotaJugador.style.display = 'none'
     sectionSeleccionarMascota.style.display = 'none'
     sectionReglasJuego.style.display = 'none'
     botonReglas.style.display = 'none'
+}
+
+function RegresarPantallaPrincipal() {
+    location.reload()
 }
 
 function seleccionarMascotaJugador() {
