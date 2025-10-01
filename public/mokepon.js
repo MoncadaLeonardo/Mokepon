@@ -7,7 +7,12 @@ sectionReiniciar.style.display = 'none'
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
 const sectionbotonMascotaJugador = document.getElementById('boton-seleccionar')
 
+//Seccion y boton para conocer las reglas del juego 
 const sectionReglasJuego = document.getElementById('section-reglas')
+const botonReglas = document.getElementById('reglas')
+
+const sectionComoJugar = document.getElementById('como-jugar')
+const botonRegresarInicio = document.getElementById('regresar-inicio')
 
 const spanMascotaJugador = document.getElementById('mascota-jugador')
 
@@ -139,6 +144,7 @@ function iniciarJuego() {
     sectionSeleccionarMascota.style.display = 'block'
     sectionSeleccionarAtaque.style.display = 'none'
     sectionVerMapa.style.display = 'none'
+    sectionComoJugar.style.display = 'none'
 
     mokepones.forEach((mokepon) =>{
         opcionDeMokepones = `
@@ -159,6 +165,8 @@ function iniciarJuego() {
     
     botonReiniciar.addEventListener('click', reiniciarJuego)
 
+    botonReglas.addEventListener('click', ReglasJuego)
+
     //conexion con el servidor para unirse al juego
     unirseAlJuego()
 }
@@ -176,6 +184,16 @@ function unirseAlJuego() {
             }
             
         })
+}
+
+function ReglasJuego() {
+    console.log('Seccion para conocer Reglas del Juego');
+    sectionComoJugar.style.display = 'block'
+
+    sectionbotonMascotaJugador.style.display = 'none'
+    sectionSeleccionarMascota.style.display = 'none'
+    sectionReglasJuego.style.display = 'none'
+    botonReglas.style.display = 'none'
 }
 
 function seleccionarMascotaJugador() {
@@ -547,6 +565,8 @@ function iniciarMapa() {
     intervalo = setInterval(pintarCanvas, 50)
     window.addEventListener('keydown', sePresionoUnaTecla)
     window.addEventListener('keyup', detenerMovimiento)
+
+    sectionReglasJuego.style.display = 'none'
 }
 
 function obtenerObjetoMascota() {
