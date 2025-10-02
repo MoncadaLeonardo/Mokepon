@@ -1,6 +1,6 @@
-# Mokepon 🐾
+# Mokepon 
 
-![Logo](C:\Users\leona\Desktop\Sesion_H_Programacion\platzi\mokepon\public\imagenes\logo.png)  
+![Logo](public/imagenes/logo.png)
 *¡Bienvenido a Mokepon, tu juego de aventuras con Mokepones!*
 
 ---
@@ -17,7 +17,6 @@ En este juego puedes elegir tu Mokepon, explorar el mapa y combatir contra otros
 Antes de ejecutar el proyecto, asegúrate de tener instalado:
 
 - [Node.js](https://nodejs.org/) 
-- Navegador moderno (Chrome, Edge, Firefox, etc.)
 
 ---
 
