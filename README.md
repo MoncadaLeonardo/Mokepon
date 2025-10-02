@@ -1,6 +1,6 @@
 # Mokepon 
 
-![Logo]<p align="center">
+<p align="center">
   <img src="public/imagenes/logo.png" alt="Logo del Proyecto" width="200"/>
 </p>
 *¡Bienvenido a Mokepon, tu juego de aventuras con Mokepones!*
