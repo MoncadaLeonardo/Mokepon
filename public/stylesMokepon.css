@@ -50,7 +50,7 @@ h2{
 .personajes{
     display: flex;
     flex-direction: column;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     text-align: center;
     background-color: #e04909;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -64,8 +64,14 @@ input{
     margin-top: 10px;
 }
 
+.ataques-personaje {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
 #boton-seleccionar{
-    padding: 30px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;

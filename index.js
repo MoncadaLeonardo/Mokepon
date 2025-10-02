@@ -23,8 +23,11 @@ class Jugador {
         this.y = y
     }
 
-    asignarAtaques(ataques) {
-        this.ataques = ataques
+    asignarAtaque(ataque) {
+        if (!this.ataques) {
+            this.ataques = []
+        }
+        this.ataques.push(ataque)
     }
 }
 
@@ -36,13 +39,10 @@ class Mokepon {
 
 app.get("/unirse", (req, res) => {
     const id = `${Math.random()}`
-
     const jugador = new Jugador(id)
-
     jugadores.push(jugador)
 
     res.setHeader("Access-Control-Allow-Origin", "*")
-
     res.send(id)
 })
 
@@ -52,13 +52,10 @@ app.post("/mokepon/:jugadorId", (req, res) => {
     const mokepon = new Mokepon(nombre)
     
     const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
-
     if (jugadorIndex >= 0) {
         jugadores[jugadorIndex].asignarMokepon(mokepon)
     }
     
-    console.log(jugadores)
-    console.log(jugadorId)
     res.end()
 })
 
@@ -68,39 +65,50 @@ app.post("/mokepon/:jugadorId/posicion", (req, res) => {
     const y = req.body.y || 0
 
     const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
-
     if (jugadorIndex >= 0) {
         jugadores[jugadorIndex].actualizarPosicion(x, y)
     }
 
     const enemigos = jugadores.filter((jugador) => jugadorId !== jugador.id)
 
-    res.send({
-        enemigos
-    })
+    res.send({ enemigos })
 })
 
+// 👉 Guardar un ataque del jugador
 app.post("/mokepon/:jugadorId/ataques", (req, res) => {
     const jugadorId = req.params.jugadorId || ""
-    const ataques = req.body.ataques || []
+    const ataque = req.body.ataque || null
     
     const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id)
-
-    if (jugadorIndex >= 0) {
-        jugadores[jugadorIndex].asignarAtaques(ataques)
+    if (jugadorIndex >= 0 && ataque) {
+        jugadores[jugadorIndex].asignarAtaque(ataque)
     }
 
     res.end()
 })
 
+// 👉 Obtener ataques del enemigo
 app.get("/mokepon/:jugadorId/ataques", (req, res) => {
-  const jugadorId = req.params.jugadorId || ""
-  const jugador = jugadores.find((jugador) => jugador.id === jugadorId)
-  res.send({
-    ataques: jugador.ataques || []
-  })
+    const jugadorId = req.params.jugadorId || ""
+    const enemigo = jugadores.find((jugador) => jugador.id !== jugadorId)
+    
+    res.send({
+        ataques: enemigo?.ataques || []
+    })
+})
+
+app.delete("/salir/:jugadorId", (req, res) => {
+    const jugadorId = req.params.jugadorId || ""
+    const jugadorIndex = jugadores.findIndex((jugador) => jugador.id === jugadorId)
+
+    if (jugadorIndex >= 0) {
+        jugadores.splice(jugadorIndex, 1) // eliminar jugador de la lista
+        console.log(`Jugador ${jugadorId} eliminado`)
+    }
+
+    res.end()
 })
 
 app.listen(8080, () => {
-    console.log("Servidor Funcionando");
+    console.log("Servidor Funcionando en http://localhost:8080")
 })
