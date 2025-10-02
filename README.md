@@ -1,6 +1,6 @@
 # Mokepon 🐾
 
-![Logo](./platzi/mokepon/public/imagenes/logo.png)  
+![Logo](C:\Users\leona\Desktop\Sesion_H_Programacion\platzi\mokepon\public\imagenes\logo.png)  
 *¡Bienvenido a Mokepon, tu juego de aventuras con Mokepones!*
 
 ---
