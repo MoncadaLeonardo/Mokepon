@@ -110,5 +110,5 @@ app.delete("/salir/:jugadorId", (req, res) => {
 })
 
 app.listen(8080, () => {
-    console.log("Servidor Funcionando en http://localhost:8080")
+    console.log("Servidor Funcionando")
 })
